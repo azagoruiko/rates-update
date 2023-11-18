@@ -40,6 +40,8 @@ SERVICE_MATCHER_BASE_URL="{{ key "expenses/service/matcher/base_url" }}"
 SERVICE_GOALS_BASE_URL="{{ key "telegram/bot/accounter/goals.base.url" }}"
 SERVICE_SPREADSHEETS_BASE_URL="{{ key "expenses/google/base_url" }}"
 
+LOCAL_MODE=true
+
 {{ range service "spark-master" }}
 SPARK_MASTER={{ .Address }}:7077
 
