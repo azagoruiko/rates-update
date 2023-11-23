@@ -1,4 +1,4 @@
-job "rates-update-currencylayer" {
+job "rates-update-currencylayer2" {
   datacenters = ["home"]
   type        = "batch"
 
