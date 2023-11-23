@@ -1,4 +1,4 @@
-job "rates-update-currencylayer2" {
+job "rates-update-currencylayer" {
   datacenters = ["home"]
   type        = "batch"
 
@@ -52,7 +52,7 @@ EOH
       config {
         network_mode = "host"
         privileged = true
-        image = "10.8.0.5:5000/rates-update-currencylayer:0.0.4"
+        image = "10.8.0.5:5000/rates-update-currencylayer:0.0.5"
         command = "bash"
         args = [
           "/app/run.sh"
