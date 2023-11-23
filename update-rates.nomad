@@ -52,7 +52,7 @@ EOH
       config {
         network_mode = "host"
         privileged = true
-        image = "10.8.0.5:5000/rates-update-currencylayer:0.0.5"
+        image = "10.8.0.5:5000/rates-update-currencylayer:0.0.6"
         command = "bash"
         args = [
           "/app/run.sh"
