@@ -1,4 +1,4 @@
-FROM 10.8.0.5:9999/docker/spark-nomad-aws-client:test1
+FROM 10.8.0.5:5000/spark-s3:0.0.3
 
 #WORKDIR /app
 #RUN wget https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-22.3.0/graalvm-ce-java11-linux-amd64-22.3.0.tar.gz
