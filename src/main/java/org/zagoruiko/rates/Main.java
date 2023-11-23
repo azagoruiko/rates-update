@@ -56,14 +56,6 @@ public class Main {
     public static void main(String[] args) throws IOException, ParseException {
         System.out.println(String.join(",", args));
 
-        ClassLoader cl = ClassLoader.getSystemClassLoader();
-
-        URL[] urls = ((URLClassLoader)cl).getURLs();
-
-        for(URL url: urls){
-            System.out.println(url.getFile());
-        }
-
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
         context.scan(Main.class.getPackage().getName());
         context.refresh();

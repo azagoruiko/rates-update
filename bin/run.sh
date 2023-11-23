@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-java -version
+java -cp "/app/sparkjob.jar" org.zagoruiko.rates.Main local
