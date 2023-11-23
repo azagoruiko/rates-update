@@ -16,6 +16,4 @@ echo "Hive metastore URL = ${POSTGRES_METASTORE_JDBC_URL}"
   --conf spark.hadoop.javax.jdo.option.ConnectionDriverName=${POSTGRES_JDBC_DRIVER} \
   --conf spark.hadoop.javax.jdo.option.ConnectionUserName=${POSTGRES_JDBC_USER} \
   --conf spark.hadoop.javax.jdo.option.ConnectionPassword=${POSTGRES_JDBC_PASSWORD} \
-  --conf spark.executor.userClassPathFirst=true \
-  --conf spark.driver.userClassPathFirst=true \
   local:/app/sparkjob.jar
