@@ -8,17 +8,9 @@ import java.sql.Date;
 public interface SparkService {
     void initCurrenciesTables();
 
-    void initInvestingTables();
-
     void repairCurrenciesTables();
 
-    void repairInvestingTables();
-
     Dataset<Row> selectRate();
-
-    Dataset<Row> selectInvestingRate();
-
-    Dataset<Row> selectInvestingRateAll();
 
     Date selectMaxDate(String source, String asset, String quote);
 }

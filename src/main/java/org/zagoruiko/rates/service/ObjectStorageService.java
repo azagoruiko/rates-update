@@ -3,7 +3,6 @@ package org.zagoruiko.rates.service;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.model.PutObjectRequest;
 import org.springframework.stereotype.Service;
-import org.zagoruiko.rates.util.Binance;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -36,7 +35,7 @@ public class ObjectStorageService implements StorageService {
     @Override
     public void storeAsCsvFile(String bucket, String table, String asset, String quote, List<List<Object>> data,
                                Function<List<List<Object>>, Map<String, List<String>>> convertToCsv) throws IOException {
-        Map<String, List<String>> output = Binance.klines2CSVMap(data);
+        Map<String, List<String>> output = convertToCsv.apply(data);
         for (Map.Entry<String, List<String>> entry : output.entrySet()) {
             File file = new File("." + File.separator + entry.getKey() + ".csv");
             FileWriter fileWriter = new FileWriter(file, false);

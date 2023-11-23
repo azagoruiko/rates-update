@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-VER=$1
-
 export NOMAD_ADDR=http://10.8.0.1:4646
 export CONSUL_HTTP_ADDR=10.8.0.1:8500
 
