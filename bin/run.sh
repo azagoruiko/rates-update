@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-java -cp "/app/rates.jar" org.zagoruiko.rates.Main local
+java -cp "/app/sparkjob.jar" org.zagoruiko.rates.Main local
