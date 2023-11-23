@@ -51,9 +51,8 @@ EOH
 
       config {
         network_mode = "host"
-        extra_hosts = ["nuc2:10.8.0.8", "nuc3:10.8.0.6", "nuc1:10.8.0.9", "vm1:10.8.0.2"]
         privileged = true
-        image = "10.8.0.5:5000/rates-update-currencylayer:0.0.1"
+        image = "10.8.0.5:5000/rates-update-currencylayer:0.0.2"
         command = "bash"
         args = [
           "/app/run.sh"
