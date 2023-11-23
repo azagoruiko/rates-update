@@ -49,7 +49,7 @@ public class S3Config {
     public AwsClientBuilder.EndpointConfiguration endpoint() {
         return new AwsClientBuilder.EndpointConfiguration(
                 s3Endpoint,
-                Regions.US_EAST_1.name()
+                "us-ashburn-1"
         );
     }
     @Bean

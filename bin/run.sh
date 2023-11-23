@@ -9,6 +9,7 @@ echo "Hive metastore URL = ${POSTGRES_METASTORE_JDBC_URL}"
   --class org.zagoruiko.rates.Main \
   --master local[*] \
   --conf spark.sql.catalogImplementation=hive \
+  --conf spark.hadoop.fs.s3a.path.style.access=true \
   --conf spark.hadoop.datanucleus.autoCreateSchema=true \
   --conf spark.hadoop.datanucleus.autoCreateTables=true \
   --conf spark.hadoop.javax.jdo.option.ConnectionURL=${POSTGRES_METASTORE_JDBC_URL} \

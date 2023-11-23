@@ -14,13 +14,12 @@ WORKDIR /opt
 RUN tar -xzf /app/apache-hive-1.2.2-bin.tar.gz
 #RUN cp /opt/apache-hive-3.1.3-bin/lib/hive*.jar /opt/spark/jars/
 
-
-#COPY statements-ingest-spark.json  /app/statements-ingest-spark.json
-COPY bin/run.sh  /app/run.sh
-COPY bin/run_local.sh  /app/run_local.sh
-
 #ENV PATH="${PATH}:/opt/spark/bin:/opt/graalvm/graalvm-ce-java11-22.3.0/bin:/opt/apache-hive-3.1.3-bin/bin"
 ENV PATH="${PATH}:/opt/spark/bin:/opt/apache-hive-1.2.2-bin/bin"
 
 WORKDIR /app
 COPY target/sparkjob-jar-with-dependencies.jar /app/sparkjob.jar
+
+#COPY statements-ingest-spark.json  /app/statements-ingest-spark.json
+COPY bin/run.sh  /app/run.sh
+COPY bin/run_local.sh  /app/run_local.sh
