@@ -18,5 +18,4 @@ echo "Hive metastore URL = ${POSTGRES_METASTORE_JDBC_URL}"
   --conf spark.hadoop.javax.jdo.option.ConnectionPassword=${POSTGRES_JDBC_PASSWORD} \
   --conf spark.executor.userClassPathFirst=true \
   --conf spark.driver.userClassPathFirst=true \
-  --jars local:/opt/spark/jars/gson-2.8.5.jar,/opt/apache-hive-3.1.3-bin/lib/hive*.jar,/opt/apache-hive-3.1.3-bin/lib/*sql*.jar,/opt/apache-hive-3.1.3-bin/lib/datanucleus*.jar,/opt/apache-hive-3.1.3-bin/lib/Hikari*.jar,/opt/apache-hive-3.1.3-bin/lib/javax*.jar \
   local:/app/sparkjob.jar
