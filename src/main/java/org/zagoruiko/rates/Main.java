@@ -69,12 +69,12 @@ public class Main {
 
         Date startDate = (Date) format.parseObject("2018-01-01");
         String[][] pairs = new String[][]{
-                new String[]{"BTC", "USD"},
                 new String[]{"USD", "UAH"},
                 new String[]{"USD", "CZK"},
                 new String[]{"EUR", "USD"},
                 new String[]{"EUR", "CZK"},
                 new String[]{"EUR", "UAH"},
+                new String[]{"BTC", "USD"},
         };
         Map<String, Set<String>> mappedPairs = new HashMap<>();
         for (String[] pair : pairs) {
@@ -103,7 +103,7 @@ public class Main {
             do {
                 Logger.getAnonymousLogger().log(Level.INFO, String.format("Querying $s %s-%s for %s",
                         asset, quotes, maxDate));
-                data = this.currencyLayerRatesClient.loadContents(asset, quotes, maxDate, 1000);
+                data = this.currencyLayerRatesClient.loadContents(asset, quotes, maxDate, 365);
 
                 for (String quote : mappedPairs.get(asset)) {
                     this.storageService.storeAsCsvFile("currency", "currencylayer", asset, quote,
@@ -111,7 +111,7 @@ public class Main {
                             dt -> CurrencyLayer.raw2CSVMap(dt));
                 }
 
-                calendar.add(Calendar.DATE, 1000);
+                calendar.add(Calendar.DATE, 365);
                 maxDate = calendar.getTime();
             } while (data.size() > 0);
         }

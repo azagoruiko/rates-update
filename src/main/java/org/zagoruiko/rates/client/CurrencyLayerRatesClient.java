@@ -35,7 +35,10 @@ public class CurrencyLayerRatesClient implements RatesClient {
         Map<String, Object> map = new ObjectMapper().readValue(restTemplate.getForObject(url, String.class), HashMap.class);
         Map<String, Map<String, Double>> ratesMap = (Map<String, Map<String, Double>>) map.get("quotes");
         if (ratesMap == null) {
-            throw new RuntimeException("Bad API response");
+            for (String key : map.keySet()) {
+                Logger.getAnonymousLogger().log(Level.WARNING, key + "=" + map.get(key));
+            }
+            //throw new RuntimeException("Bad API response");
         }
         for (String currentDate : ratesMap.keySet()) {
             Map<String, Double> quotes = ratesMap.get(currentDate);
