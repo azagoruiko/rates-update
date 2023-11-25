@@ -19,6 +19,7 @@ public class SparkServiceImpl implements SparkService {
     }
     @Override
     public void initCurrenciesTables() {
+        spark.sql("DROP TABLE currencylayer" );
 
         spark.sql("CREATE EXTERNAL TABLE currencylayer " +
                 "(date DATE, asst STRING, quote STRING, rate FLOAT) " +
