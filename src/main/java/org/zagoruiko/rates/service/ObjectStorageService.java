@@ -36,6 +36,8 @@ public class ObjectStorageService implements StorageService {
     public void storeAsCsvFile(String bucket, String table, String asset, String quote, List<List<Object>> data,
                                Function<List<List<Object>>, Map<String, List<String>>> convertToCsv) throws IOException {
         Map<String, List<String>> output = convertToCsv.apply(data);
+        Logger.getAnonymousLogger().log(Level.INFO, "Data: " + data.size());
+        Logger.getAnonymousLogger().log(Level.INFO, "Data: " + output.entrySet().size());
         for (Map.Entry<String, List<String>> entry : output.entrySet()) {
             File file = new File("/tmp" + File.separator + entry.getKey() + ".csv");
             Logger.getAnonymousLogger().log(Level.INFO, "Saving " + file.getAbsolutePath());
