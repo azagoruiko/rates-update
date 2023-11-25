@@ -103,7 +103,7 @@ public class Main {
             do {
                 Logger.getAnonymousLogger().log(Level.INFO, String.format("Querying $s %s-%s for %s",
                         asset, quotes, maxDate));
-                data = this.currencyLayerRatesClient.loadContents(asset, quotes, maxDate, 30);
+                data = this.currencyLayerRatesClient.loadContents(asset, quotes, maxDate, 150);
 
                 for (String quote : mappedPairs.get(asset)) {
                     this.storageService.storeAsCsvFile("currency", "currencylayer", asset, quote,
@@ -111,7 +111,7 @@ public class Main {
                             dt -> CurrencyLayer.raw2CSVMap(dt));
                 }
 
-                calendar.add(Calendar.DATE, 30);
+                calendar.add(Calendar.DATE, 150);
                 maxDate = calendar.getTime();
                 try {
                     Thread.sleep(1000);

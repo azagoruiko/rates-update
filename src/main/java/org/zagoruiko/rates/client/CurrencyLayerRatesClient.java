@@ -23,7 +23,7 @@ public class CurrencyLayerRatesClient implements RatesClient {
     @Override
     public List<List<Object>> loadContents(String asset, String quote, Date from, int limit) throws IOException {
         calendar.setTime(from);
-        calendar.add(Calendar.DATE, Math.min(30, limit));
+        calendar.add(Calendar.DATE, Math.min(150, limit));
 
         List<List<Object>> data = new ArrayList<>();
         String dateString = DateFormatUtils.format(from, "yyyy-MM-dd");
