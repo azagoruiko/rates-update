@@ -37,7 +37,7 @@ public class ObjectStorageService implements StorageService {
                                Function<List<List<Object>>, Map<String, List<String>>> convertToCsv) throws IOException {
         Map<String, List<String>> output = convertToCsv.apply(data);
         for (Map.Entry<String, List<String>> entry : output.entrySet()) {
-            File file = new File("." + File.separator + entry.getKey() + ".csv");
+            File file = new File("/tmp" + File.separator + entry.getKey() + ".csv");
             FileWriter fileWriter = new FileWriter(file, false);
             PrintWriter printWriter = new PrintWriter(fileWriter);
             printWriter.println(entry.getValue().stream().collect(Collectors.joining("\n")));
@@ -76,7 +76,7 @@ public class ObjectStorageService implements StorageService {
 
     @Override
     public void createPartition(String bucket, String table, String asset, String quote) throws IOException {
-        File file = new File("." + File.separator + "__PARTITION__");
+        File file = new File("/tmp" + File.separator + "__PARTITION__");
         file.createNewFile();
         try {
             PutObjectRequest putObjectRequest = new PutObjectRequest(bucket,
@@ -93,7 +93,7 @@ public class ObjectStorageService implements StorageService {
 
     @Override
     public void prepareTableFolder(String bucket, String table) throws IOException {
-        File file = new File("." + File.separator + "__PARTITION__");
+        File file = new File("/tmp" + File.separator + "__PARTITION__");
         file.createNewFile();
         try {
             PutObjectRequest putObjectRequest = new PutObjectRequest(bucket,
