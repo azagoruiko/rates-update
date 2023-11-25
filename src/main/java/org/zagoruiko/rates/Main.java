@@ -87,7 +87,12 @@ public class Main {
             List<List<Object>> data = null;
             this.storageService.createPartition("currency", "currencylayer", asset, firstQuote);
             sparkService.repairCurrenciesTables();
-            Date currentMaxDate = this.sparkService.selectMaxDate("currencylayer", asset, firstQuote);
+            Date currentMaxDate = (Date) format.parseObject("2018-01-01");
+            try {
+                currentMaxDate = this.sparkService.selectMaxDate("currencylayer", asset, firstQuote);
+            } catch (Exception e) {
+                System.out.format("FAILED TO SELECT MAX DATE %s - %s", currentMaxDate, startDate);
+            }
 
             System.out.format("!!!! %s - %s", currentMaxDate, startDate);
             calendar.setTime(new Date(Math.max(
