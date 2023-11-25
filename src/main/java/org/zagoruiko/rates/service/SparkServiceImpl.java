@@ -39,7 +39,7 @@ public class SparkServiceImpl implements SparkService {
     @Override
     public Dataset<Row> selectRate() {
         return spark.sql("SELECT asset, quote, date_trunc(to_date(date, 'yyyy-MM-dd'), 'YEAR') year, max(date) max_ts, min(date) min_ts " +
-                "FROM currencylayer group by asset, quote, date_trunc(to_date(timestamp, 'yyyy-MM-dd'), 'YEAR')").select(
+                "FROM currencylayer group by asset, quote, date_trunc(to_date(date, 'yyyy-MM-dd'), 'YEAR')").select(
                 functions.col("asset"),
                 functions.col("quote"),
                 functions.col("year"),
