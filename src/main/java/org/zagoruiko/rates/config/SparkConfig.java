@@ -31,8 +31,6 @@ public class SparkConfig {
                 .config("spark.driver.userClassPathFirst", false)
                 .getOrCreate();
 
-        spark.conf().set("spark.executor.userClassPathFirst", "true");
-
         SparkContext sparkContext = spark.sparkContext();
         JavaSparkContext jsc = new JavaSparkContext(sparkContext);
         if (System.getenv("LOCAL_MODE") != null) {
