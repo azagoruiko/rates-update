@@ -33,7 +33,7 @@ public class CurrencyLayerRatesClient implements RatesClient {
         Logger.getAnonymousLogger().log(Level.INFO, String.format("Querying %s-%s for %s - %s",
                 asset, quote, dateString, dateToString));
         Map<String, Object> map = new ObjectMapper().readValue(restTemplate.getForObject(url, String.class), HashMap.class);
-        Map<String, Map<String, Double>> ratesMap = (Map<String, Map<String, Double>>) map.get("quotes");
+        Map<String, Map<String, Object>> ratesMap = (Map<String, Map<String, Object>>) map.get("quotes");
         if (ratesMap == null) {
             for (String key : map.keySet()) {
                 Logger.getAnonymousLogger().log(Level.WARNING, key + "=" + map.get(key));
@@ -41,9 +41,9 @@ public class CurrencyLayerRatesClient implements RatesClient {
             //throw new RuntimeException("Bad API response");
         }
         for (String currentDate : ratesMap.keySet()) {
-            Map<String, Double> quotes = ratesMap.get(currentDate);
+            Map<String, Object> quotes = ratesMap.get(currentDate);
             for (String qt : quotes.keySet()) {
-                data.add(new ArrayList<Object>() {
+                data.add(new ArrayList<>() {
                     {
                         add(dateString);
                         add(asset);
