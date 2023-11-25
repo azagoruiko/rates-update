@@ -52,7 +52,7 @@ public class CurrencyLayerRatesClient implements RatesClient {
             for (String qt : quotes.keySet()) {
                 data.add(new ArrayList<>() {
                     {
-                        add(dateString);
+                        add(currentDate);
                         add(asset);
                         add(qt.replace(asset, ""));
                         add(quotes.get(qt).toString());
