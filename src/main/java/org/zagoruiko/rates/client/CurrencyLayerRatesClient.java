@@ -47,7 +47,7 @@ public class CurrencyLayerRatesClient implements RatesClient {
             }
             //throw new RuntimeException("Bad API response");
         }
-        for (String currentDate : ratesMap.keySet()) {
+        else for (String currentDate : ratesMap.keySet()) {
             Map<String, Object> quotes = ratesMap.get(currentDate);
             for (String qt : quotes.keySet()) {
                 data.add(new ArrayList<>() {
