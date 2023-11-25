@@ -20,8 +20,8 @@ public class SparkServiceImpl implements SparkService {
     @Override
     public void initCurrenciesTables() {
 
-        spark.sql("CREATE EXTERNAL TABLE IF NOT EXISTS currencylayer " +
-                "(Timestamp DATE, asst STRING, quote STRING, rate FLOAT) " +
+        spark.sql("CREATE EXTERNAL TABLE currencylayer " +
+                "(date DATE, asst STRING, quote STRING, rate FLOAT) " +
                 "ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' " +
                 "PARTITIONED BY (asset STRING) " +
                 "LOCATION 's3a://currency/currencylayer/' " );
