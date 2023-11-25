@@ -1,6 +1,6 @@
 FROM 10.8.0.5:5000/spark-s3:0.0.3
 
-ENV PATH="${PATH}:/opt/spark/bin"
+ENV PATH="${PATH}:/opt/spark/bin:/opt/apache-hive-1.2.2-bin/bin"
 
 WORKDIR /app
 COPY target/sparkjob-jar-with-dependencies.jar /app/sparkjob.jar
