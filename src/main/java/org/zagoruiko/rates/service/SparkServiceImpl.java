@@ -22,7 +22,7 @@ public class SparkServiceImpl implements SparkService {
         spark.sql("DROP TABLE IF EXISTS currencylayer" );
 
         spark.sql("CREATE EXTERNAL TABLE currencylayer " +
-                "(date DATE, asst STRING, quote STRING, rate FLOAT) " +
+                "(date DATE, rate FLOAT) " +
                 "ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' " +
                 "PARTITIONED BY (asset STRING, quote STRING) " +
                 "LOCATION 's3a://currency/currencylayer/' " );
