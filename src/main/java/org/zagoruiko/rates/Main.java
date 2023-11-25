@@ -107,7 +107,7 @@ public class Main {
 
                 for (String quote : mappedPairs.get(asset)) {
                     this.storageService.storeAsCsvFile("currency", "currencylayer", asset, quote,
-                            data.stream().filter(ds -> ds.get(1).equals(quote)).collect(Collectors.toList()),
+                            data.stream().filter(ds -> ds.get(2).equals(quote)).collect(Collectors.toList()),
                             dt -> CurrencyLayer.raw2CSVMap(dt));
                 }
 
