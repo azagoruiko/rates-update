@@ -32,7 +32,14 @@ public class CurrencyLayerRatesClient implements RatesClient {
                 dateString, dateToString, asset, quote);
         Logger.getAnonymousLogger().log(Level.INFO, String.format("Querying %s-%s for %s - %s",
                 asset, quote, dateString, dateToString));
-        Map<String, Object> map = new ObjectMapper().readValue(restTemplate.getForObject(url, String.class), HashMap.class);
+        String response = restTemplate.getForObject(url, String.class);
+        Map<String, Object> map = new HashMap<>();
+        try {
+            map = new ObjectMapper().readValue(response, HashMap.class);
+        } catch (Exception e) {
+            e.printStackTrace();
+            Logger.getAnonymousLogger().log(Level.WARNING, "COULD NOT parse " + response);
+        }
         Map<String, Map<String, Object>> ratesMap = (Map<String, Map<String, Object>>) map.get("quotes");
         if (ratesMap == null) {
             for (String key : map.keySet()) {
