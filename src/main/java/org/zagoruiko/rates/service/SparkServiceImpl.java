@@ -19,12 +19,12 @@ public class SparkServiceImpl implements SparkService {
     }
     @Override
     public void initCurrenciesTables() {
-        spark.sql("DROP TABLE currencylayer" );
+        spark.sql("DROP TABLE IF EXISTS currencylayer" );
 
         spark.sql("CREATE EXTERNAL TABLE currencylayer " +
-                "(date DATE, asst STRING, quote STRING, rate FLOAT) " +
+                "(date DATE, rate FLOAT) " +
                 "ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' " +
-                "PARTITIONED BY (asset STRING) " +
+                "PARTITIONED BY (asset STRING, quote STRING) " +
                 "LOCATION 's3a://currency/currencylayer/' " );
 
         repairCurrenciesTables();

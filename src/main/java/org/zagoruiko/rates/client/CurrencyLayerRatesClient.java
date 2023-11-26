@@ -50,7 +50,7 @@ public class CurrencyLayerRatesClient implements RatesClient {
         else for (String currentDate : ratesMap.keySet()) {
             Map<String, Object> quotes = ratesMap.get(currentDate);
             for (String qt : quotes.keySet()) {
-                data.add(new ArrayList<>() {
+                data.add(new ArrayList<Object>() {
                     {
                         add(currentDate);
                         add(asset);
