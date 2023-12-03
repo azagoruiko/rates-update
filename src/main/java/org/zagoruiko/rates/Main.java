@@ -117,7 +117,7 @@ public class Main {
                 }
 
                 calendar.add(Calendar.DATE, 150);
-                maxDate = calendar.getTime().before(new Date()) ? calendar.getTime() : new Date();
+                maxDate = calendar.getTime();
                 try {
                     Thread.sleep(2000);
                 } catch (InterruptedException e) {
