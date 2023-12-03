@@ -27,7 +27,7 @@ public class CurrencyLayerRatesClient implements RatesClient {
 
         List<List<Object>> data = new ArrayList<>();
         String dateString = DateFormatUtils.format(from, "yyyy-MM-dd");
-        String dateToString = DateFormatUtils.format(calendar.getTime(), "yyyy-MM-dd");
+        String dateToString = DateFormatUtils.format(calendar.getTime().before(new Date()) ? calendar.getTime() : new Date(), "yyyy-MM-dd");
         String url = String.format("http://api.currencylayer.com/timeframe?access_key=52526fecd8a9faf623a947ba88d14fab&start_date=%s&end_date=%s&source=%s&currencies=%s",
                 dateString, dateToString, asset, quote);
         Logger.getAnonymousLogger().log(Level.INFO, String.format("Querying %s-%s for %s - %s",
