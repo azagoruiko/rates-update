@@ -71,10 +71,15 @@ public class Main {
         String[][] pairs = new String[][]{
                 new String[]{"USD", "UAH"},
                 new String[]{"USD", "CZK"},
+                new String[]{"USD", "BTC"},
                 new String[]{"EUR", "USD"},
                 new String[]{"EUR", "CZK"},
                 new String[]{"EUR", "UAH"},
-                new String[]{"BTC", "USD"},
+                new String[]{"EUR", "BTC"},
+                new String[]{"CZK", "BTC"},
+                new String[]{"CZK", "UAH"},
+                new String[]{"UAH", "BTC"},
+
         };
         Map<String, Set<String>> mappedPairs = new HashMap<>();
         for (String[] pair : pairs) {
