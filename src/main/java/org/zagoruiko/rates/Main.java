@@ -104,7 +104,7 @@ public class Main {
                     startDate.getTime(),
                     currentMaxDate.getTime()
             )));
-            Date maxDate = calendar.getTime();
+            Date maxDate = calendar.getTime().before(new Date()) ? calendar.getTime() : new Date();
             do {
                 Logger.getAnonymousLogger().log(Level.INFO, String.format("Querying $s %s-%s for %s",
                         asset, quotes, maxDate));
